@@ -1,6 +1,7 @@
 package com.example.fadhilamadan.a9gag;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
@@ -9,9 +10,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class mainActivity extends AppCompatActivity {
     Dialog dialog;
+
+    public static void readDataFinish(Context context, String result) {
+        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+    }
 
     @Override
     public void onBackPressed() {
@@ -57,5 +63,9 @@ public class mainActivity extends AppCompatActivity {
                 });
             }
         });
+
+        ReadData rd = new ReadData(this);
+        rd.execute("http://192.168.43.146/penir/penir.php");
+
     }
 }
