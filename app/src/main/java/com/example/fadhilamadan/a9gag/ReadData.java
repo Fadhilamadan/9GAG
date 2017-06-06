@@ -21,9 +21,9 @@ public class ReadData extends AsyncTask<String, String, String> {
     private ProgressDialog progressDialog;
     InputStream inputStream = null;
     String result = "";
-    mainActivity ma;
+    halamanutama ma;
 
-    public ReadData(mainActivity ma) {
+    public ReadData(halamanutama ma) {
         progressDialog = new ProgressDialog(ma);
         this.ma = ma;
     }

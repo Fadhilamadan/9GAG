@@ -28,8 +28,7 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view,parent, false);
-
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view, parent, false);
         RecyclerView.ViewHolder vhold = new RecyclerView.ViewHolder(v) {
             @Override
             public String toString() {
@@ -39,17 +38,37 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         return vhold;
     }
 
+
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        TextView username = (TextView) holder.itemView.findViewById(R.id.txtUsername);
-        TextView password = (TextView) holder.itemView.findViewById(R.id.txtPassword);
-        username.setText(productList.get(position).getUsername());
-        password.setText(productList.get(position).getPassword());
+        TextView nama = (TextView) holder.itemView.findViewById(R.id.txtNamaProduk);
+        TextView harga = (TextView) holder.itemView.findViewById(R.id.txtHarga);
+        TextView desk = (TextView) holder.itemView.findViewById(R.id.txtDeskrip);
+        ImageView iv = (ImageView) holder.itemView.findViewById(R.id.imgLogo);
+        nama.setText(productList.get(position).getNama());
+        harga.setText("Rp. " + productList.get(position).getHarga());
+        desk.setText( productList.get(position).getDeskripsi());
+
+        URL url = null;
+        try {
+            url = new URL("http://penir.jitusolution.com/img/" + productList.get(position).getId() + ".jpg");
+            Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+            iv.setImageBitmap(bmp);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return productList.size();
+    }
+
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
     }
 }

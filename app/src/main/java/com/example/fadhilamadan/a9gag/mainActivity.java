@@ -64,8 +64,8 @@ public class mainActivity extends AppCompatActivity {
             }
         });
 
-        ReadData rd = new ReadData(this);
-        rd.execute("http://192.168.43.146/penir/penir.php");
+        //ReadData rd = new ReadData(this);
+        //rd.execute("http://192.168.0.11/penir/penir.php");
 
     }
 }

@@ -5,23 +5,24 @@ package com.example.fadhilamadan.a9gag;
  */
 
 public class Product {
+    private String nama;
     private int id;
-    private String username;
-    private String password;
+    private int harga;
+    private String deskripsi;
 
-    public Product( int id, String username, String password) {
-
+    public Product(String nama, int id, int harga, String deskripsi) {
+        this.setNama(nama);
         this.setId(id);
-        this.setUsername(username);
-        this.setPassword(password);
+        this.setHarga(harga);
+        this.setDeskripsi(deskripsi);
     }
 
-    public String getUsername() {
-        return username;
+    public String getNama() {
+        return nama;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setNama(String nama) {
+        this.nama = nama;
     }
 
     public int getId() {
@@ -32,11 +33,19 @@ public class Product {
         this.id = id;
     }
 
-    public String getPassword() {
-        return password;
+    public int getHarga() {
+        return harga;
     }
 
-    public void setPassword(String deskripsi) {
-        this.password = password;
+    public void setHarga(int harga) {
+        this.harga = harga;
+    }
+
+    public String getDeskripsi() {
+        return deskripsi;
+    }
+
+    public void setDeskripsi(String deskripsi) {
+        this.deskripsi = deskripsi;
     }
 }
