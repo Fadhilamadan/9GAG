@@ -1,6 +1,5 @@
 package com.example.fadhilamadan.a9gag;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,13 +23,9 @@ public class hotFragment extends Fragment {
         return hf;
     }
 
-
-
-
     public hotFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,8 +40,6 @@ public class hotFragment extends Fragment {
         rv.setHasFixedSize(true);
         rv.setAdapter(adapter);
 		return view;
-
-
     }
 
 }

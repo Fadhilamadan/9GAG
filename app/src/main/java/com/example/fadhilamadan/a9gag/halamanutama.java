@@ -2,14 +2,12 @@ package com.example.fadhilamadan.a9gag;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
@@ -18,7 +16,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-
 
 public class halamanutama extends AppCompatActivity {
 
@@ -50,8 +47,6 @@ public class halamanutama extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_halamanutama);
         instance = this;
-
-
 
         ReadData rd = new ReadData(this);
         //rd.execute("http://192.168.0.11/penir/penir.php");
@@ -89,12 +84,10 @@ public class halamanutama extends AppCompatActivity {
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
             }
         });
 
@@ -146,7 +139,5 @@ public class halamanutama extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
     }
-
 }

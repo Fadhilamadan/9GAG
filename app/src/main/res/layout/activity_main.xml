@@ -6,65 +6,50 @@
     android:layout_height="match_parent"
     tools:context="com.example.fadhilamadan.a9gag.mainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome To"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="33dp"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="202dp"
-        app:srcCompat="@mipmap/ic_launcher"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
+        android:id="@+id/logo"
+        android:layout_width="277dp"
+        android:layout_height="251dp"
+        android:layout_marginBottom="132dp"
+        android:layout_marginEnd="71dp"
         android:layout_marginStart="71dp"
         app:layout_constraintBottom_toBottomOf="@+id/btnLogin"
-        android:layout_marginEnd="71dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="68dp"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="79dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@mipmap/ic_launcher"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintHorizontal_bias="0.504" />
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Sign In"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginBottom="139dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Sign In"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="129dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        tools:layout_constraintRight_creator="1" />
 
     <Button
         android:id="@+id/btnSignup"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Sign Up"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        android:layout_marginStart="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Sign Up"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 </android.support.constraint.ConstraintLayout>
 

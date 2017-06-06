@@ -13,10 +13,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-/**
- * Created by andre on 5/1/2017.
- */
-
 public class ReadData extends AsyncTask<String, String, String> {
     private ProgressDialog progressDialog;
     InputStream inputStream = null;
