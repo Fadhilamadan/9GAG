@@ -20,6 +20,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -38,6 +39,7 @@ public class halamanutama extends AppCompatActivity {
     public static Adapter adapter;
     //public static FragmentManager fm;
     public static halamanutama instance = null;
+
 
     @Override
     public void onBackPressed() {
@@ -64,7 +66,12 @@ public class halamanutama extends AppCompatActivity {
 
         ReadData rd = new ReadData(this);
         //rd.execute("http://192.168.0.11/penir/penir.php");
-        rd.execute("http://penir.jitusolution.com");
+        rd.execute("http://192.168.43.146/penir/penir.php/");
+        //rd.execute("http://penir.jitusolution.com");
+
+        Intent intent = getIntent();
+        String ambilNamaUser = intent.getStringExtra("namaUser");
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -187,17 +194,18 @@ public class halamanutama extends AppCompatActivity {
             prods = new ArrayList<Product>();
             for (int i = 0; i < json2.length(); i++) {
                 JSONObject c = json2.getJSONObject(i);
-                String name = c.getString("nama");
                 int id = c.getInt("id");
-                int harga = c.getInt("harga");
-                String deskr = c.getString("deskripsi");
-                prods.add(new Product(name, id, harga, deskr));
+                String username = c.getString("nama");
+                String password = c.getString("password");
+                prods.add(new Product(id, username, password));
             }
            instance.setupViewPager();
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

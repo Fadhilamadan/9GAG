@@ -2,11 +2,14 @@ package com.example.fadhilamadan.a9gag;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 
@@ -36,10 +39,14 @@ public class hotFragment extends Fragment {
         rv = (RecyclerView) view.findViewById(R.id.recycle);
 
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
         rv.setLayoutManager(llm);
         rv.setHasFixedSize(true);
         rv.setAdapter(adapter);
 		return view;
+
     }
 
 }
+
+

@@ -37,16 +37,15 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
 
-
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         TextView nama = (TextView) holder.itemView.findViewById(R.id.txtNamaProduk);
         TextView harga = (TextView) holder.itemView.findViewById(R.id.txtHarga);
         TextView desk = (TextView) holder.itemView.findViewById(R.id.txtDeskrip);
         ImageView iv = (ImageView) holder.itemView.findViewById(R.id.imgLogo);
-        nama.setText(productList.get(position).getNama());
-        harga.setText("Rp. " + productList.get(position).getHarga());
-        desk.setText( productList.get(position).getDeskripsi());
+        nama.setText(productList.get(position).getId());
+        harga.setText(productList.get(position).getNama());
+        desk.setText( productList.get(position).getPassword());
 
         URL url = null;
         try {
@@ -60,6 +59,9 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         }
 
     }
+
+
+
 
     @Override
     public int getItemCount() {
