@@ -91,6 +91,7 @@ public class ReadData extends AsyncTask<String, String, String> {
         }
 
         ma.readDataFinish(ma.getApplicationContext(), result);
+        ma.readDataFinishTrending(ma.getApplicationContext(), result);
         // return result;
     }
 }

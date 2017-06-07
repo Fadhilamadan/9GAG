@@ -36,6 +36,7 @@ public class halamanutama extends AppCompatActivity {
     public NavigationView nv;
     public DrawerLayout dl;
     public static ArrayList<Product> prods;
+    public static ArrayList<Product> prodsTrending;
     public static halamanutama instance = null;
 
 
@@ -65,8 +66,10 @@ public class halamanutama extends AppCompatActivity {
 
         //ini utk baca JSON
         ReadData rd = new ReadData(this);
-        //rd.execute("http://penir.jitusolution.com");
-        rd.execute("http://192.168.43.146/penir/penir.php");
+        rd.execute("http://103.52.146.34/penir/penir08/picthot.php");
+
+        ReadData rd2 = new ReadData(this);
+        rd2.execute("http://103.52.146.34/penir/penir08/picttrend.php");
 
         vp = (ViewPager) findViewById(R.id.viewpager);
         //setupViewPager(vp);
@@ -163,7 +166,11 @@ public class halamanutama extends AppCompatActivity {
         cd.newInstance(prods);
         adapter.addFragment(cd);
 
-        adapter.addFragment(new trendingFragment());
+        trendingFragment td = new trendingFragment();
+        td.newInstance(prodsTrending);
+        adapter.addFragment(td);
+
+        //adapter.addFragment(new trendingFragment());
         adapter.addFragment(new freshFragment());
 
 
@@ -177,12 +184,12 @@ public class halamanutama extends AppCompatActivity {
     }
 
 
-
+    //read data utk gambar hot
     public  void readDataFinish(Context context, String result) {
         //Toast.makeText(context,result, Toast.LENGTH_LONG).show();
         try {
             JSONObject json = new JSONObject(result);
-            JSONArray json2 = json.getJSONArray("product");
+            JSONArray json2 = json.getJSONArray("picthot");
             prods = new ArrayList<Product>();
             //ProductHelper product = new ProductHelper(context);
             //ArrayList<Product> pr2 = product.sqlSelect();
@@ -193,6 +200,30 @@ public class halamanutama extends AppCompatActivity {
                 int harga = c.getInt("harga");
                 String deskrip = c.getString("deskripsi");
                 prods.add(new Product(name,id,harga,deskrip));
+            }
+
+            instance.setupViewPager();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //read data utk gambar trending
+    public  void readDataFinishTrending(Context context, String result) {
+        //Toast.makeText(context,result, Toast.LENGTH_LONG).show();
+        try {
+            JSONObject json = new JSONObject(result);
+            JSONArray json2 = json.getJSONArray("picttrend");
+            prodsTrending = new ArrayList<Product>();
+            //ProductHelper product = new ProductHelper(context);
+            //ArrayList<Product> pr2 = product.sqlSelect();
+            for (int i = 0; i <json2.length(); i++) {
+                JSONObject c = json2.getJSONObject(i);
+                String name = c.getString("nama");
+                int id = c.getInt("id");
+                int harga = c.getInt("harga");
+                String deskrip = c.getString("deskripsi");
+                prodsTrending.add(new Product(name,id,harga,deskrip));
             }
 
             instance.setupViewPager();

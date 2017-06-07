@@ -14,24 +14,29 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
-public class RecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    List<Product> productList;
+/**
+ * Created by Sonny on 6/8/2017.
+ */
 
-    RecycleAdapter (List<Product> productList) {
+public class RecycleAdapterTrending extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
+    List<Product> productList;
+    RecycleAdapterTrending (List<Product> productList) {
         this.productList = productList;
     }
 
+
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view,parent, false);
-
-        RecyclerView.ViewHolder vhold = new RecyclerView.ViewHolder(v) {
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view, parent, false);
+		RecyclerView.ViewHolder vhold = new RecyclerView.ViewHolder(v) {
             @Override
             public String toString() {
                 return super.toString();
             }
         };
         return vhold;
+
     }
 
     @Override
@@ -46,7 +51,7 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
         URL url = null;
         try {
-            url = new URL("http://103.52.146.34/penir/penir08/img/hot/" + productList.get(position).getId() + ".jpg");
+            url = new URL("http://103.52.146.34/penir/penir08/img/trending/" + productList.get(position).getId() + ".jpg");
             Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
             iv.setImageBitmap(bmp);
 
@@ -55,7 +60,6 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         }catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     @Override
