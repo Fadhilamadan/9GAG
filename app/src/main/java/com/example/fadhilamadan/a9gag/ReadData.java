@@ -13,6 +13,10 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+/**
+ * Created by andre on 5/1/2017.
+ */
+
 public class ReadData extends AsyncTask<String, String, String> {
     private ProgressDialog progressDialog;
     InputStream inputStream = null;
@@ -60,10 +64,10 @@ public class ReadData extends AsyncTask<String, String, String> {
             return buffer.toString();
         } catch (MalformedURLException e) {
             e.printStackTrace();
-          //  ma.readDataFinish(ma.getApplicationContext(), "Result" +  e.getMessage().toString());
+            //  ma.readDataFinish(ma.getApplicationContext(), "Result" +  e.getMessage().toString());
         } catch (IOException e) {
             e.printStackTrace();
-           // ma.readDataFinish(ma.getApplicationContext(), "Result" +  e.getMessage().toString());
+            // ma.readDataFinish(ma.getApplicationContext(), "Result" +  e.getMessage().toString());
         } finally {
             if (connection != null) {
                 connection.disconnect();
@@ -87,6 +91,6 @@ public class ReadData extends AsyncTask<String, String, String> {
         }
 
         ma.readDataFinish(ma.getApplicationContext(), result);
-       // return result;
+        // return result;
     }
 }

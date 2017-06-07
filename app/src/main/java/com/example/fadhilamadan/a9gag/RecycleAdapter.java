@@ -15,7 +15,6 @@ import java.net.URL;
 import java.util.List;
 
 public class RecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-
     List<Product> productList;
 
     RecycleAdapter (List<Product> productList) {
@@ -24,7 +23,8 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view,parent, false);
+
         RecyclerView.ViewHolder vhold = new RecyclerView.ViewHolder(v) {
             @Override
             public String toString() {
@@ -32,11 +32,7 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             }
         };
         return vhold;
-
-
     }
-
-
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
@@ -53,16 +49,14 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             url = new URL("http://192.168.43.146/penir/img/" + productList.get(position).getId() + ".jpg");
             Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
             iv.setImageBitmap(bmp);
-        } catch (MalformedURLException e) {
+
+        }catch (MalformedURLException e){
             e.printStackTrace();
-        } catch (IOException e) {
+        }catch (IOException e) {
             e.printStackTrace();
         }
 
     }
-
-
-
 
     @Override
     public int getItemCount() {

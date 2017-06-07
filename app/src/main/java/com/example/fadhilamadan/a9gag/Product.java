@@ -1,11 +1,14 @@
 package com.example.fadhilamadan.a9gag;
 
+/**
+ * Created by andre on 5/1/2017.
+ */
+
 public class Product {
     private String nama;
     private int id;
     private int harga;
     private String deskripsi;
-
 
     public Product(String nama, int id, int harga, String deskripsi) {
         this.setNama(nama);
@@ -13,8 +16,6 @@ public class Product {
         this.setHarga(harga);
         this.setDeskripsi(deskripsi);
     }
-
-
 
     public String getNama() {
         return nama;
