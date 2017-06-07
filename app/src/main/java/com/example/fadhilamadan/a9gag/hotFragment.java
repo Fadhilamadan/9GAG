@@ -33,7 +33,7 @@ public class hotFragment extends Fragment {
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_hot, container, false);
         View view = inflater.inflate(R.layout.fragment_hot, container, false);
-        rv = (RecyclerView) view.findViewById(R.id.recycleView);
+        rv = (RecyclerView) view.findViewById(R.id.recycle);
 
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rv.setLayoutManager(llm);

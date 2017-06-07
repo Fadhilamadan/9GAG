@@ -9,6 +9,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -32,8 +33,9 @@ public class halamanutama extends AppCompatActivity {
     public TabLayout tabs;
     public static ArrayList<Product> prods;
     public NavigationView nv;
-    DrawerLayout dl;
-
+    public DrawerLayout dl;
+    public static Adapter adapter;
+    //public static FragmentManager fm;
     public static halamanutama instance = null;
 
     @Override
@@ -159,7 +161,7 @@ public class halamanutama extends AppCompatActivity {
         vp.setAdapter(adapter);
     }*/
     private  void setupViewPager() {
-        Adapter adapter = new Adapter(getSupportFragmentManager());
+        adapter = new Adapter(getSupportFragmentManager());
         //adapter.addFragment(new hotFragment());
 
         hotFragment cd = new hotFragment();

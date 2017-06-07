@@ -24,7 +24,7 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view, null, false);
         RecyclerView.ViewHolder vhold = new RecyclerView.ViewHolder(v) {
             @Override
             public String toString() {
@@ -32,7 +32,11 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             }
         };
         return vhold;
+
+
     }
+
+
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
