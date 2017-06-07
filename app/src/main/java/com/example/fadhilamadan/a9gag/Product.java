@@ -3,13 +3,15 @@ package com.example.fadhilamadan.a9gag;
 public class Product {
     private String nama;
     private int id;
-    private String password;
+    private int harga;
+    private String deskripsi;
 
 
-    public Product(int id,String nama,String password) {
-        this.setId(id);
+    public Product(String nama, int id, int harga, String deskripsi) {
         this.setNama(nama);
-        this.setPassword(getPassword());
+        this.setId(id);
+        this.setHarga(harga);
+        this.setDeskripsi(deskripsi);
     }
 
 
@@ -30,13 +32,19 @@ public class Product {
         this.id = id;
     }
 
-
-
-    public String getPassword() {
-        return password;
+    public int getHarga() {
+        return harga;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setHarga(int harga) {
+        this.harga = harga;
+    }
+
+    public String getDeskripsi() {
+        return deskripsi;
+    }
+
+    public void setDeskripsi(String deskripsi) {
+        this.deskripsi = deskripsi;
     }
 }

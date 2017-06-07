@@ -66,8 +66,8 @@ public class halamanutama extends AppCompatActivity {
 
         ReadData rd = new ReadData(this);
         //rd.execute("http://192.168.0.11/penir/penir.php");
-        rd.execute("http://192.168.43.146/penir/penir.php/");
-        //rd.execute("http://penir.jitusolution.com");
+        //rd.execute("http://192.168.43.146/penir/penir.php/");
+        rd.execute("http://penir.jitusolution.com");
 
         Intent intent = getIntent();
         String ambilNamaUser = intent.getStringExtra("namaUser");
@@ -194,10 +194,11 @@ public class halamanutama extends AppCompatActivity {
             prods = new ArrayList<Product>();
             for (int i = 0; i < json2.length(); i++) {
                 JSONObject c = json2.getJSONObject(i);
+                String name = c.getString("nama");
                 int id = c.getInt("id");
-                String username = c.getString("nama");
-                String password = c.getString("password");
-                prods.add(new Product(id, username, password));
+                int harga = c.getInt("harga");
+                String deskr = c.getString("deskripsi");
+                prods.add(new Product(name, id, harga, deskr));
             }
            instance.setupViewPager();
         } catch (JSONException e) {

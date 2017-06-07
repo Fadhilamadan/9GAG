@@ -17,7 +17,6 @@ import java.util.ArrayList;
 public class mainActivity extends AppCompatActivity {
     Dialog dialog;
     //public static final int REQUEST_SELECT_CONTACT = 1;
-    public static final String URL_EXTRA = "namaKey";
 
     public static void readDataFinish(Context context, String result) {
         Toast.makeText(context, result, Toast.LENGTH_LONG).show();
