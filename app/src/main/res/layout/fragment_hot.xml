@@ -6,7 +6,12 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycle"
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height="match_parent"
         android:scrollbars="vertical" />
 
 </RelativeLayout>
+=======
+        android:layout_height="match_parent" />
+</FrameLayout>
+>>>>>>> c450d3cf7ed5a3e1ca86629315dc024fd9cc79fa
