@@ -7,7 +7,9 @@
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/background" />
 
@@ -22,5 +24,6 @@
         android:text="User"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/cardview_light_background"
-        android:textSize="36sp" />
+        android:textSize="36sp"
+        android:textStyle="bold" />
 </RelativeLayout>
