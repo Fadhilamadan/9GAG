@@ -2,6 +2,7 @@ package com.example.fadhilamadan.a9gag;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
@@ -129,12 +130,15 @@ public class halamanutama extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view,"FAB ditekan!", Snackbar.LENGTH_LONG).setAction("Action", new View.OnClickListener() {
+                Snackbar.make(view,"Choose image!", Snackbar.LENGTH_LONG).setAction("Gallery", new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        dl.openDrawer(GravityCompat.START);
+                        //dl.openDrawer(GravityCompat.START);
+                        Intent intent = new Intent(view.getContext(),PhotoActivity.class);
+                        startActivity(intent);
                     }
                 }).show();
+
 
             }
         });
