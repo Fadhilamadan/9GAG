@@ -4,11 +4,20 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -22,6 +31,8 @@ public class halamanutama extends AppCompatActivity {
     public ViewPager vp;
     public TabLayout tabs;
     public static ArrayList<Product> prods;
+    public NavigationView nv;
+    DrawerLayout dl;
 
     public static halamanutama instance = null;
 
@@ -91,6 +102,47 @@ public class halamanutama extends AppCompatActivity {
             }
         });
 
+        nv = (NavigationView) findViewById(R.id.nav_view);
+        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                dl = (DrawerLayout) findViewById(R.id.drawer);
+                dl.closeDrawers();
+
+                switch (item.getItemId()) {
+                    case R.id.itemProfil:
+                        nv.getMenu().getItem(0).setChecked(true);
+                        break;
+                    case R.id.itemNews:
+                        nv.getMenu().getItem(1).setChecked(true);
+                        break;
+                }
+
+                return false;
+            }
+        });
+
+        dl = (DrawerLayout) findViewById(R.id.drawer);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingActionButton2);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view,"FAB ditekan!", Snackbar.LENGTH_LONG).setAction("Action", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dl.openDrawer(GravityCompat.START);
+                    }
+                }).show();
+
+            }
+        });
+
+        ActionBar supportActionBar = getSupportActionBar();
+        if (supportActionBar != null) {
+            supportActionBar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
+            supportActionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
     }
 
     /*private void setupViewPager(ViewPager vp) {
@@ -139,5 +191,14 @@ public class halamanutama extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == item.getItemId()) {
+            dl.openDrawer(GravityCompat.START);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
