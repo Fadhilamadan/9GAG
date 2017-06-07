@@ -1,8 +1,6 @@
 package com.example.fadhilamadan.a9gag;
 
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
@@ -10,19 +8,14 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,8 +32,6 @@ public class halamanutama extends AppCompatActivity {
     public static ArrayList<Product> prodsTrending;
     public static halamanutama instance = null;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -51,14 +42,12 @@ public class halamanutama extends AppCompatActivity {
         setContentView(R.layout.activity_halamanutama);
         instance = this;
 
-
         //ProductHelper product = new ProductHelper(getApplicationContext());
-       // product.getWritableDatabase();
+        //product.getWritableDatabase();
         //product.sqlInsert("JAM KAKI", "JAM YANG DIPASANG DI KAKI", 350000);
         //product.sqlInsert("Jam Kaki", "Jam fashion yang dipasang di kaki", 350000);
         //product.sqlInsert("Baju Kebalik", "Baju seragam yang kancingnya di punggung", 120000);
         //product.sqlInsert("Wig Transparan", "Rambut palsu tidak terlihat", 470000);
-
 
         //ini toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -74,6 +63,7 @@ public class halamanutama extends AppCompatActivity {
         vp = (ViewPager) findViewById(R.id.viewpager);
         //setupViewPager(vp);
         tabs = (TabLayout) findViewById(R.id.tabs);
+
         tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -90,6 +80,7 @@ public class halamanutama extends AppCompatActivity {
 
             }
         });
+
         vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -107,13 +98,13 @@ public class halamanutama extends AppCompatActivity {
 
             }
         });
+
         nv = (NavigationView) findViewById(R.id.nav_view);
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 DrawerLayout dl = (DrawerLayout) findViewById(R.id.drawer);
                 dl.closeDrawers();
-
                 switch (item.getItemId()) {
                     case R.id.itemProfil:
                         nv.getMenu().getItem(0).setChecked(true);
@@ -124,10 +115,7 @@ public class halamanutama extends AppCompatActivity {
                     case R.id.itemSetting:
                         nv.getMenu().getItem(3).setChecked(true);
                         vp.setCurrentItem(1);
-
                 }
-
-
                 return false;
             }
         });
@@ -146,7 +134,6 @@ public class halamanutama extends AppCompatActivity {
             supportActionBar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
             supportActionBar.setDisplayHomeAsUpEnabled(true);
         }
-
     }
 
     @Override
@@ -173,18 +160,13 @@ public class halamanutama extends AppCompatActivity {
         //adapter.addFragment(new trendingFragment());
         adapter.addFragment(new freshFragment());
 
-
-
-
         //adapter.addFragment(new CardContentFragment());
         //adapter.addFragment(new InboxFragment());
 
         vp.setAdapter(adapter);
-
     }
 
-
-    //read data utk gambar hot
+    //region read data utk gambar hot
     public  void readDataFinish(Context context, String result) {
         //Toast.makeText(context,result, Toast.LENGTH_LONG).show();
         try {
@@ -201,14 +183,14 @@ public class halamanutama extends AppCompatActivity {
                 String deskrip = c.getString("deskripsi");
                 prods.add(new Product(name,id,harga,deskrip));
             }
-
             instance.setupViewPager();
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
+    //endregion
 
-    //read data utk gambar trending
+    //region read data utk gambar trending
     public  void readDataFinishTrending(Context context, String result) {
         //Toast.makeText(context,result, Toast.LENGTH_LONG).show();
         try {
@@ -225,12 +207,10 @@ public class halamanutama extends AppCompatActivity {
                 String deskrip = c.getString("deskripsi");
                 prodsTrending.add(new Product(name,id,harga,deskrip));
             }
-
             instance.setupViewPager();
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
-
-
+    //endregion
 }

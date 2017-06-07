@@ -1,27 +1,16 @@
 package com.example.fadhilamadan.a9gag;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Toast;
-
-
-import java.io.IOException;
-import java.util.UUID;
 
 public class PhotoActivity extends AppCompatActivity {
     public EditText judul;
@@ -52,7 +41,7 @@ public class PhotoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo);
 
-        //pake kamera hape
+        //region pake kamera hape
         foto = (ImageView) findViewById(R.id.imgFoto);
         ImageButton btnFoto = (ImageButton) findViewById(R.id.btnFoto);
         btnFoto.setOnClickListener(new View.OnClickListener() {
@@ -64,8 +53,9 @@ public class PhotoActivity extends AppCompatActivity {
                 }
             }
         });
+        //endregion
 
-        //pake choose image from galery
+        //region pake choose image from galery
         /*Intent intent = new Intent(Intent.ACTION_PICK,
                 MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         intent.setType("image*//*");
@@ -77,20 +67,20 @@ public class PhotoActivity extends AppCompatActivity {
         intent.putExtra("aspectY", 1);
         intent.putExtra("return-data", true);
         startActivityForResult(intent, 1);*/
+        //endregion
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        //pake kamera hape
+        //region pake kamera hape
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             foto.setImageBitmap(imageBitmap);
         }
+        //endregion
 
-
-
-        //pake choose image from gallery
+        //region pake choose image from gallery
         /*if (resultCode != RESULT_OK) {
             return;
         }
@@ -101,7 +91,7 @@ public class PhotoActivity extends AppCompatActivity {
                 Bitmap newProfilePic = extras.getParcelable("data");
             }
         }*/
-
+        //endregion
     }
 
 }

@@ -1,9 +1,5 @@
 package com.example.fadhilamadan.a9gag;
 
-/**
- * Created by andre on 5/1/2017.
- */
-
 public class Product {
     private String nama;
     private int id;

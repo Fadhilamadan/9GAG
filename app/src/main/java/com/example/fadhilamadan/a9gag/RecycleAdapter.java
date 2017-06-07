@@ -50,12 +50,11 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
             iv.setImageBitmap(bmp);
 
-        }catch (MalformedURLException e){
+        } catch (MalformedURLException e){
             e.printStackTrace();
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     @Override

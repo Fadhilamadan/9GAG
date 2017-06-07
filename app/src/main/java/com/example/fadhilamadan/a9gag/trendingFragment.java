@@ -23,7 +23,6 @@ public class trendingFragment extends Fragment {
         return trendFract;
     }
 
-
     public trendingFragment() {
         // Required empty public constructor
     }

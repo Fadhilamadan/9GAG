@@ -14,17 +14,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
-/**
- * Created by Sonny on 6/8/2017.
- */
-
 public class RecycleAdapterTrending extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     List<Product> productList;
     RecycleAdapterTrending (List<Product> productList) {
         this.productList = productList;
     }
-
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -36,7 +31,6 @@ public class RecycleAdapterTrending extends RecyclerView.Adapter<RecyclerView.Vi
             }
         };
         return vhold;
-
     }
 
     @Override
