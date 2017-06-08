@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class freshFragment extends Fragment {
     public static RecyclerView rv;
-    public static RecycleAdapterFresh adapter;
+    public static RecycleAdapterFresh adapterFresh;
 
 
     public freshFragment() {
@@ -23,7 +23,7 @@ public class freshFragment extends Fragment {
     }
     public static freshFragment newInstance(ArrayList<Product> prodsFresh) {
         freshFragment fd = new freshFragment();
-        adapter = new RecycleAdapterFresh(prodsFresh);
+        adapterFresh = new RecycleAdapterFresh(prodsFresh);
         return fd;
     }
 
@@ -38,7 +38,7 @@ public class freshFragment extends Fragment {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rv.setLayoutManager(llm);
         rv.setHasFixedSize(true);
-        rv.setAdapter(adapter);
+        rv.setAdapter(adapterFresh);
         return view;
 
 

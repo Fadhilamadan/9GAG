@@ -188,7 +188,7 @@ public class halamanutama extends AppCompatActivity {
         td.newInstance(prodsTrending);
         adapter.addFragment(td);
 
-        trendingFragment fd = new trendingFragment();
+        freshFragment fd = new freshFragment();
         fd.newInstance(prodsFresh);
         adapter.addFragment(fd);
 
@@ -247,7 +247,7 @@ public class halamanutama extends AppCompatActivity {
         //Toast.makeText(context,result, Toast.LENGTH_LONG).show();
         try {
             JSONObject json = new JSONObject(result);
-            JSONArray json2 = json.getJSONArray("pictfresh");
+            JSONArray json2 = json.getJSONArray("comment");
             prodsFresh = new ArrayList<Product>();
             for (int i = 0; i <json2.length(); i++) {
                 JSONObject c = json2.getJSONObject(i);
