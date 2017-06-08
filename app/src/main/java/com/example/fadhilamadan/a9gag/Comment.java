@@ -9,7 +9,7 @@ public class Comment {
 
     public Comment(int id,int username_id,int posting_id, String text, int upvote) {
         this.setId(id);
-        this.setUsername_id(id);
+        this.setUsername_id(username_id);
         this.setPosting_id(posting_id);
         this.setTesting(text);
         this.setUpvite(upvote);

@@ -165,7 +165,7 @@ public class halamanutama extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Snackbar.make(v,"FAB ditekan",Snackbar.LENGTH_LONG).setAction("Action",null).show();
-                Intent lol = new Intent(getApplicationContext(),Comment_Activity.class);
+                Intent lol = new Intent(getApplicationContext(),KomenActivity.class);
                 startActivity(lol);
             }
         });
@@ -202,7 +202,7 @@ public class halamanutama extends AppCompatActivity {
         adapter.addFragment(td);
 
         freshFragment fd = new freshFragment();
-        fd.newInstance(prodsFresh);
+        final ProductHelper product = new ProductHelper(getApplicationContext());
         adapter.addFragment(fd);
 
         //adapter.addFragment(new trendingFragment());

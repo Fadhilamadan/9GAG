@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.Editable;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -14,8 +15,8 @@ import java.util.ArrayList;
  */
 
 public class ProductHelper extends SQLiteOpenHelper{
-    public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "TokoOnline.db";
+    public static final int DATABASE_VERSION = 2;
+    public static final String DATABASE_NAME = "droidgag.db";
     private static final String SQL_CREATE_USERNAME =
             "CREATE TABLE `Username` ( `id` INTEGER PRIMARY KEY AUTOINCREMENT, `username` TEXT, `password` TEXT)";
     private static final String SQL_CREATE_COMMENT =
@@ -41,8 +42,9 @@ public class ProductHelper extends SQLiteOpenHelper{
         }
     }
     public void sqlInsertComment(int id, int posting, String komen) {
+
         //String query = "INSERT INTO `Komen`(`id`,`username_id`,`posting_id`,`text`,`upvote`) VALUES (NULL," + username + "," + posting + ",\"" + komen +"\",0);";
-        String query = "INSERT INTO `Komen`(`id`,`username_id`,`posting_id`,`description`,`upvote`) VALUES (NULL,37,"+posting+",'"+komen+"',0);";
+        String query = "INSERT INTO `Komen`(`id`,`username_id`,`posting_id`,`description`,`upvote`) VALUES (NULL,"+id+","+posting+",'"+komen+"',0);";
         //String query = "INSERT INTO `Komen`(`id`,`username_id`,`posting_id`,`description`,`upvote`) VALUES (NULL,1,1,'lol',0);";
         try {
             SQLiteDatabase db = this.getWritableDatabase();
@@ -74,7 +76,7 @@ public class ProductHelper extends SQLiteOpenHelper{
         ArrayList<Comment> prods = new ArrayList<>();
         try {
             SQLiteDatabase db = this.getWritableDatabase();
-            Cursor c = db.rawQuery("SELECT id, username_id, posting_id,description,upvote FROM `Komen` ORDER BY `id` ASC;", null);
+            Cursor c = db.rawQuery("SELECT id,username_id,posting_id,description,upvote FROM `Komen`;", null);
             c.moveToFirst();
             do {
                 int id = c.getInt(0);
@@ -82,7 +84,7 @@ public class ProductHelper extends SQLiteOpenHelper{
                 int posting_id = c.getInt(2);
                 String text = c.getString(3);
                 int upvote = c.getInt(4);
-                prods.add(new Comment(id, username_id, posting_id,text,upvote));
+                prods.add(new Comment(id,username_id,posting_id,text,upvote));
             } while (c.moveToNext());
             c.close();
 
@@ -91,8 +93,6 @@ public class ProductHelper extends SQLiteOpenHelper{
         }
         return prods;
     }
-
-
 
 
     @Override
