@@ -1,6 +1,7 @@
 package com.example.fadhilamadan.a9gag;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -13,6 +14,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -34,6 +36,29 @@ public class halamanutama extends AppCompatActivity {
     public static ArrayList<Product> prods;
     public static ArrayList<Product> prodsTrending;
     public static halamanutama instance = null;
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure want to quit?").setTitle("Exit");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //exit kayak pencet menu home
+                moveTaskToBack(true);
+
+                //exit penuh
+                /*Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_HOME);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);/*//***Change Here***
+                startActivity(intent);
+                finish();*/
+            }
+        });
+        builder.setNegativeButton("No",null);
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

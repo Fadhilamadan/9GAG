@@ -39,7 +39,7 @@
     <ImageView
         android:id="@+id/imgLogo"
         android:layout_width="match_parent"
-        android:layout_height="275dp"
+        android:layout_height="wrap_content"
         android:clickable="true"
         app:srcCompat="@mipmap/ic_launcher" />
 
