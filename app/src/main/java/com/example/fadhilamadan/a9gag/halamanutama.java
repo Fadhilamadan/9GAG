@@ -91,6 +91,7 @@ public class halamanutama extends AppCompatActivity {
         ReadData rd3 = new ReadData(this);
         rd3.execute("http://103.52.146.34/penir/penir08/pictfresh.php");
 
+        ImageView btnComment = (ImageView) findViewById(R.id.imgComment);
         vp = (ViewPager) findViewById(R.id.viewpager);
         //setupViewPager(vp);
         tabs = (TabLayout) findViewById(R.id.tabs);
@@ -157,6 +158,8 @@ public class halamanutama extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Snackbar.make(v,"FAB ditekan",Snackbar.LENGTH_LONG).setAction("Action",null).show();
+                Intent lol = new Intent(getApplicationContext(),Comment_Activity.class);
+                startActivity(lol);
             }
         });
 
@@ -185,7 +188,7 @@ public class halamanutama extends AppCompatActivity {
         adapter.addFragment(cd);
 
         trendingFragment td = new trendingFragment();
-        td.newInstance(prodsTrending);
+        //td.newInstance(prodsTrending);
         adapter.addFragment(td);
 
         freshFragment fd = new freshFragment();

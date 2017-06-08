@@ -15,6 +15,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class mainActivity extends AppCompatActivity {
+    final ProductHelper product = new ProductHelper(getApplicationContext());
     Dialog dialog;
     //public static final int REQUEST_SELECT_CONTACT = 1;
 
