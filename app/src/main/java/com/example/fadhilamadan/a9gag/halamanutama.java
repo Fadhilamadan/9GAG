@@ -2,7 +2,6 @@ package com.example.fadhilamadan.a9gag;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
@@ -162,9 +161,7 @@ public class halamanutama extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Snackbar.make(v,"FAB ditekan",Snackbar.LENGTH_LONG).setAction("Action",null).show();
-                Intent intent = new Intent(getApplicationContext(),tellFriend.class);
-                startActivity(intent);
+                Snackbar.make(v,"FAB ditekan",Snackbar.LENGTH_LONG).setAction("Action",null).show();
             }
         });
         //endregion
@@ -196,7 +193,7 @@ public class halamanutama extends AppCompatActivity {
         adapter.addFragment(cd);
 
         trendingFragment td = new trendingFragment();
-        //td.newInstance(prodsTrending);
+        td.newInstance(prodsTrending);
         adapter.addFragment(td);
 
         freshFragment fd = new freshFragment();
