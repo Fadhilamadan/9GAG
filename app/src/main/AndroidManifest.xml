@@ -23,7 +23,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".halamanutama" />
-        <activity android:name=".PhotoActivity"></activity>
+        <activity android:name=".PhotoActivity" />
+        <activity android:name=".Comment_Activity"></activity>
     </application>
 
 </manifest>

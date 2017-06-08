@@ -3,12 +3,14 @@ package com.example.fadhilamadan.a9gag;
 public class Product {
     private String nama;
     private int id;
+
     private int harga;
     private String deskripsi;
 
     public Product(String nama, int id, int harga, String deskripsi) {
         this.setNama(nama);
         this.setId(id);
+
         this.setHarga(harga);
         this.setDeskripsi(deskripsi);
     }
