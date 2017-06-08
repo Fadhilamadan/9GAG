@@ -3,6 +3,7 @@
     package="com.example.fadhilamadan.a9gag">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -24,7 +25,8 @@
         </activity>
         <activity android:name=".halamanutama" />
         <activity android:name=".PhotoActivity" />
-        <activity android:name=".Comment_Activity"></activity>
+        <activity android:name=".Comment_Activity" />
+        <activity android:name=".tellFriend"></activity>
     </application>
 
 </manifest>
