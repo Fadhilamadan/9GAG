@@ -33,6 +33,7 @@ public class halamanutama extends AppCompatActivity {
     public DrawerLayout dl;
     public static ArrayList<Product> prods;
     public static ArrayList<Product> prodsTrending;
+    public static ArrayList<Product> prodsFresh;
     public static halamanutama instance = null;
 
     @Override
@@ -62,6 +63,8 @@ public class halamanutama extends AppCompatActivity {
 
         ReadData rd2 = new ReadData(this);
         rd2.execute("http://103.52.146.34/penir/penir08/picttrend.php");
+        ReadData rd3 = new ReadData(this);
+        rd3.execute("http://103.52.146.34/penir/penir08/pictfresh.php");
 
         vp = (ViewPager) findViewById(R.id.viewpager);
         //setupViewPager(vp);
@@ -160,6 +163,10 @@ public class halamanutama extends AppCompatActivity {
         td.newInstance(prodsTrending);
         adapter.addFragment(td);
 
+        trendingFragment fd = new trendingFragment();
+        fd.newInstance(prodsFresh);
+        adapter.addFragment(fd);
+
         //adapter.addFragment(new trendingFragment());
         adapter.addFragment(new freshFragment());
 
@@ -205,6 +212,25 @@ public class halamanutama extends AppCompatActivity {
                 int harga = c.getInt("harga");
                 String deskrip = c.getString("deskripsi");
                 prodsTrending.add(new Product(name,id,harga,deskrip));
+            }
+            instance.setupViewPager();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+    public  void readDataFinishFresh(Context context, String result) {
+        //Toast.makeText(context,result, Toast.LENGTH_LONG).show();
+        try {
+            JSONObject json = new JSONObject(result);
+            JSONArray json2 = json.getJSONArray("pictfresh");
+            prodsFresh = new ArrayList<Product>();
+            for (int i = 0; i <json2.length(); i++) {
+                JSONObject c = json2.getJSONObject(i);
+                String name = c.getString("nama");
+                int id = c.getInt("id");
+                int harga = c.getInt("harga");
+                String deskrip = c.getString("deskripsi");
+                prodsFresh.add(new Product(name,id,harga,deskrip));
             }
             instance.setupViewPager();
         } catch (JSONException e) {
