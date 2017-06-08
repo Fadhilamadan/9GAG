@@ -14,10 +14,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
-/**
- * Created by Rama Adhiguna on 6/8/2017.
- */
-
 public class RecycleAdapterFresh extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     List<Product> productList;
 

@@ -40,8 +40,6 @@ public class freshFragment extends Fragment {
         rv.setHasFixedSize(true);
         rv.setAdapter(adapterFresh);
         return view;
-
-
     }
 
 }

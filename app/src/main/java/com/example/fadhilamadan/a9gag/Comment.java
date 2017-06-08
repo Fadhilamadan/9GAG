@@ -1,9 +1,5 @@
 package com.example.fadhilamadan.a9gag;
 
-/**
- * Created by Rama Adhiguna on 6/8/2017.
- */
-
 public class Comment {
     private int id;
     private int posting_id;

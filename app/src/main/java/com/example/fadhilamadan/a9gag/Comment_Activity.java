@@ -1,14 +1,8 @@
 package com.example.fadhilamadan.a9gag;
 
-import android.content.Context;
+import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.widget.Toast;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -26,6 +20,7 @@ public class Comment_Activity extends AppCompatActivity {
         /*ReadData rd = new ReadData(this.getApplicationContext());
         rd.execute("http://103.52.146.34/penir/penir08/comment.php");*/
     }
+
     /*public static void readDataFinish(Context context, String result,int posting) {
         Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
         try {
@@ -45,7 +40,5 @@ public class Comment_Activity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
     }*/
-
 }
