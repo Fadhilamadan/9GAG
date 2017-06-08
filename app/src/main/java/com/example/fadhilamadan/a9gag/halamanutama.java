@@ -167,7 +167,9 @@ public class halamanutama extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v,"FAB ditekan",Snackbar.LENGTH_LONG).setAction("Action",null).show();
+                //Snackbar.make(v,"FAB ditekan",Snackbar.LENGTH_LONG).setAction("Action",null).show();
+                Intent intent = new Intent(getApplicationContext(),tellFriend.class);
+                startActivity(intent);
             }
         });
         //endregion
