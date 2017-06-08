@@ -43,6 +43,8 @@ public class hotFragment extends Fragment {
         rv.setHasFixedSize(true);
         rv.setAdapter(adapter);
         return view;
+
+
     }
 
 }

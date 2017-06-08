@@ -17,9 +17,9 @@ public class trendingFragment extends Fragment {
     public static RecyclerView rv;
     public static RecycleAdapterTrending adapterTrending;
 
-    public static trendingFragment newInstance(ArrayList<Product> prods)  {
+    public static trendingFragment newInstance(ArrayList<Product> prodsTrending)  {
         trendingFragment trendFract = new trendingFragment();
-        adapterTrending = new RecycleAdapterTrending(prods);
+        adapterTrending = new RecycleAdapterTrending(prodsTrending);
         return trendFract;
     }
 

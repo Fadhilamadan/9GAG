@@ -23,10 +23,10 @@ public class Comment_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment_);
         instance = this;
-        ReadData rd = new ReadData(this);
-        rd.execute("http://103.52.146.34/penir/penir08/comment.php");
+        /*ReadData rd = new ReadData(this.getApplicationContext());
+        rd.execute("http://103.52.146.34/penir/penir08/comment.php");*/
     }
-    public static void readDataFinish(Context context, String result,int posting) {
+    /*public static void readDataFinish(Context context, String result,int posting) {
         Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
         try {
             JSONObject json = new  JSONObject(result);
@@ -46,6 +46,6 @@ public class Comment_Activity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-    }
+    }*/
 
 }

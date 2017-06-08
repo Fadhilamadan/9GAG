@@ -1,6 +1,7 @@
 package com.example.fadhilamadan.a9gag;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
@@ -16,6 +17,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -173,8 +176,6 @@ public class halamanutama extends AppCompatActivity {
             JSONObject json = new JSONObject(result);
             JSONArray json2 = json.getJSONArray("picthot");
             prods = new ArrayList<Product>();
-            //ProductHelper product = new ProductHelper(context);
-            //ArrayList<Product> pr2 = product.sqlSelect();
             for (int i = 0; i <json2.length(); i++) {
                 JSONObject c = json2.getJSONObject(i);
                 String name = c.getString("nama");
@@ -197,8 +198,6 @@ public class halamanutama extends AppCompatActivity {
             JSONObject json = new JSONObject(result);
             JSONArray json2 = json.getJSONArray("picttrend");
             prodsTrending = new ArrayList<Product>();
-            //ProductHelper product = new ProductHelper(context);
-            //ArrayList<Product> pr2 = product.sqlSelect();
             for (int i = 0; i <json2.length(); i++) {
                 JSONObject c = json2.getJSONObject(i);
                 String name = c.getString("nama");
@@ -213,4 +212,26 @@ public class halamanutama extends AppCompatActivity {
         }
     }
     //endregion
+
+    //ini method utk read comment
+    public  void readDataFinishComment(Context context, String result) {
+        //Toast.makeText(context,result, Toast.LENGTH_LONG).show();
+        /*try {
+            JSONObject json = new JSONObject(result);
+            JSONArray json2 = json.getJSONArray("picttrend");
+            prodsTrending = new ArrayList<Product>();
+            for (int i = 0; i <json2.length(); i++) {
+                JSONObject c = json2.getJSONObject(i);
+                String name = c.getString("nama");
+                int id = c.getInt("id");
+                int harga = c.getInt("harga");
+                String deskrip = c.getString("deskripsi");
+                prodsTrending.add(new Product(name,id,harga,deskrip));
+            }
+            instance.setupViewPager();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }*/
+    }
+
 }
