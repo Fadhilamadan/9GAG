@@ -4,11 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     tools:context="com.example.fadhilamadan.a9gag.mainActivity"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="25dp">
 
-    <Button
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="277dp"
+        android:layout_height="256dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:foregroundGravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/btnLogin"
+        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.554"
+        app:srcCompat="@drawable/logo"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <ImageButton
         android:id="@+id/btnLogin"
         android:layout_width="0dp"
         android:layout_height="75dp"
@@ -19,6 +39,8 @@
         android:text="Sign In"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:background="@null"
+        app:srcCompat="@drawable/login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -27,7 +49,7 @@
         tools:layout_constraintRight_creator="1"
         app:layout_constraintHorizontal_bias="0.5" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btnSignup"
         android:layout_width="0dp"
         android:layout_height="75dp"
@@ -37,33 +59,14 @@
         android:text="Sign Up"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:background="@null"
+        app:srcCompat="@drawable/signup"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintTop_creator="1" />
-
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="277dp"
-        android:layout_height="257dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        android:foregroundGravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/btnLogin"
-        app:layout_constraintHorizontal_bias="0.52"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.55"
-        app:srcCompat="@drawable/logo"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_editor_absoluteY="53dp"
-        tools:layout_editor_absoluteX="49dp" />
 
 </android.support.constraint.ConstraintLayout>
 

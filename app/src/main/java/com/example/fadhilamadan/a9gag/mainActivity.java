@@ -4,15 +4,14 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
 
 public class mainActivity extends AppCompatActivity {
     final ProductHelper product = new ProductHelper(getApplicationContext());
@@ -36,7 +35,6 @@ public class mainActivity extends AppCompatActivity {
         builder.setNegativeButton("No",null);
         AlertDialog dialog = builder.create();
         dialog.show();
-
     }
 
     @Override
@@ -44,7 +42,7 @@ public class mainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button buttonLogin = (Button) findViewById(R.id.btnLogin);
+        ImageButton buttonLogin = (ImageButton) findViewById(R.id.btnLogin);
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,8 +68,7 @@ public class mainActivity extends AppCompatActivity {
             }
         });
 
-        //ReadData rd = new ReadData(this);
-        //rd.execute("http://192.168.0.11/penir/penir.php");
-
+        /*ReadData rd = new ReadData(this);
+        rd.execute("http://192.168.0.11/penir/penir.php");*/
     }
 }

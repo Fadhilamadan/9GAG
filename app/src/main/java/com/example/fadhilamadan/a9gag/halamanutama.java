@@ -2,7 +2,6 @@ package com.example.fadhilamadan.a9gag;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
@@ -19,8 +18,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -96,6 +93,7 @@ public class halamanutama extends AppCompatActivity {
         //setupViewPager(vp);
         tabs = (TabLayout) findViewById(R.id.tabs);
 
+        //region
         tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -116,7 +114,6 @@ public class halamanutama extends AppCompatActivity {
         vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
             }
 
             @Override
@@ -127,16 +124,21 @@ public class halamanutama extends AppCompatActivity {
 
             @Override
             public void onPageScrollStateChanged(int state) {
-
             }
         });
 
+        //region Menu Slide Bar (Drawer)
         nv = (NavigationView) findViewById(R.id.nav_view);
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                //region Menambahkan fitur jika salah satu menu diklik maka drawer otomatis menutup
                 DrawerLayout dl = (DrawerLayout) findViewById(R.id.drawer);
                 dl.closeDrawers();
+                //endregion
+
+                //region Mendeteksi apabila menu diklik
                 switch (item.getItemId()) {
                     case R.id.itemProfil:
                         nv.getMenu().getItem(0).setChecked(true);
@@ -145,14 +147,17 @@ public class halamanutama extends AppCompatActivity {
                         nv.getMenu().getItem(1).setChecked(true);
                         break;
                     case R.id.itemSetting:
-                        nv.getMenu().getItem(3).setChecked(true);
-                        vp.setCurrentItem(1);
+                        nv.getMenu().getItem(2).setChecked(true);
+                        break;
                 }
+                //endregion
+
                 return false;
             }
         });
+        //endregion
 
-        //ini button floating
+        //region Floating Button di kanan atas
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingActionButton2);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -162,12 +167,15 @@ public class halamanutama extends AppCompatActivity {
                 startActivity(lol);
             }
         });
+        //endregion
 
+        //region gambar menu drawer
         ActionBar supportActionBar = getSupportActionBar();
         if (supportActionBar!= null){
             supportActionBar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
             supportActionBar.setDisplayHomeAsUpEnabled(true);
         }
+        //endregion
     }
 
     @Override
