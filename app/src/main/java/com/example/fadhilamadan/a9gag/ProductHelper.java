@@ -53,18 +53,7 @@ public class ProductHelper extends SQLiteOpenHelper{
             Log.d("error", e.getMessage().toString());
         }
     }
-    public void sqlInsertCommentParam(String id,String komen) {
 
-        //String query = "INSERT INTO `Komen`(`id`,`username_id`,`posting_id`,`text`,`upvote`) VALUES (NULL," + username + "," + posting + ",\"" + komen +"\",0);";
-        String query = "INSERT INTO `Komen`(`id`,`username_id`,`posting_id`,`description`,`upvote`) VALUES (NULL,1,"+id+",'"+komen+"',0);";
-        //String query = "INSERT INTO `Komen`(`id`,`username_id`,`posting_id`,`description`,`upvote`) VALUES (NULL,1,1,'lol',0);";
-        try {
-            SQLiteDatabase db = this.getWritableDatabase();
-            db.execSQL(query);
-        } catch (Exception e) {
-            Log.d("error", e.getMessage().toString());
-        }
-    }
     public ArrayList<Username> sqlSelectUsername() {
         ArrayList<Username> prods = new ArrayList<>();
         try {

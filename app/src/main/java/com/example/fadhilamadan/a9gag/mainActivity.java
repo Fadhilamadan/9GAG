@@ -7,15 +7,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class mainActivity extends AppCompatActivity {
     //final ProductHelper product = new ProductHelper(getApplicationContext());
     Dialog dialog;
+    ArrayList<Username> p;
     //public static final int REQUEST_SELECT_CONTACT = 1;
 
     public static void readDataFinish(Context context, String result) {
@@ -42,6 +46,10 @@ public class mainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        final ProductHelper product = new ProductHelper(getApplicationContext());
+        product.getWritableDatabase();
+        p = product.sqlSelectUsername();
+
         ImageButton buttonLogin = (ImageButton) findViewById(R.id.btnLogin);
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,10 +67,24 @@ public class mainActivity extends AppCompatActivity {
                 dialogButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(getApplicationContext(),halamanutama.class);
-                        String ambilNamaUser = uname.getText().toString();
-                        intent.putExtra("namaUser", ambilNamaUser);
-                        startActivity(intent);
+                        for (int i =0; i< p.size(); i++) {
+                            if (uname.equals(p.get(i).getUsername().toString())){
+                                if (upass.equals(p.get(i).getPassword().toString())){
+                                    Intent intent = new Intent(getApplicationContext(),halamanutama.class);
+                                    String ambilNamaUser = uname.getText().toString();
+                                    intent.putExtra("namaUser", ambilNamaUser);
+                                    startActivity(intent);
+                                }
+                                else {
+                                    Toast.makeText(mainActivity.this, "password salah", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                            else {
+                                Toast.makeText(mainActivity.this,"id / password salah",Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        Toast.makeText(mainActivity.this, "hai", Toast.LENGTH_SHORT).show();
+
                     }
                 });
             }
