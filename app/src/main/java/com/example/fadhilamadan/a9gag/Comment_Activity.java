@@ -68,20 +68,20 @@ public class Comment_Activity extends AppCompatActivity {
         //for (int i = 0; i < pa.size(); i++) {
         //    Log.d("username cok", pa.get(i).getId() + ", " + pa.get(i).getUsername() + ", " + pa.get(i).getPassword());
         //}
-        Cupuman = (EditText)findViewById(R.id.txtKomen);
+        /*Cupuman = (EditText)findViewById(R.id.txtKomen);
         Button Komen = (Button) findViewById(R.id.btnComment);
         Komen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 product.getWritableDatabase();
                 String value =Cupuman.getText().toString();
-                product.sqlInsertComment(100,3,value);
+                product.sqlInsertComment(100,a,value);
                 ArrayList<Comment> p = product.sqlSelectComment();
                 for (int i = 0; i < p.size(); i++) {
                     Toast.makeText(getApplicationContext(),String.valueOf(p.get(i).getUsername_id()),Toast.LENGTH_LONG).show();
                 Log.d("Comment cok", p.get(i).getId() + ", " + p.get(i).getUsername_id() + ", "+ p.get(i).getPosting_id()+"," + p.get(i).getTesting()+ ", " + p.get(i).getUpvite());}
             }
-        });
+        });*/
 
     }
         /*ReadData rd = new ReadData(this.getApplicationContext());

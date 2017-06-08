@@ -46,7 +46,7 @@ public class RecycleAdapterFresh extends RecyclerView.Adapter<RecyclerView.ViewH
 
         URL url = null;
         try {
-            url = new URL("http://103.52.146.34/penir/penir08/img/fresh/" + productList.get(position).getId() + ".jpg");
+            url = new URL("http://103.52.146.34/penir/penir08/img/trending/" + productList.get(position).getId() + ".jpg");
             Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
             iv.setImageBitmap(bmp);
 

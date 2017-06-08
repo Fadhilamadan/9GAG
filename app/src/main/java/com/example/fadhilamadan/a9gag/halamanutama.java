@@ -3,6 +3,7 @@ package com.example.fadhilamadan.a9gag;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
@@ -19,6 +20,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import org.json.JSONArray;
@@ -62,6 +64,7 @@ public class halamanutama extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ImageButton btnComment = (ImageButton) findViewById(R.id.imgComment);
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -90,7 +93,7 @@ public class halamanutama extends AppCompatActivity {
         ReadData rd3 = new ReadData(this);
         rd3.execute("http://103.52.146.34/penir/penir08/pictfresh.php");
 
-        ImageView btnComment = (ImageView) findViewById(R.id.imgComment);
+        //ImageView btnComment = (ImageView) findViewById(R.id.imgComment);
         vp = (ViewPager) findViewById(R.id.viewpager);
         //setupViewPager(vp);
         tabs = (TabLayout) findViewById(R.id.tabs);
@@ -165,8 +168,6 @@ public class halamanutama extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Snackbar.make(v,"FAB ditekan",Snackbar.LENGTH_LONG).setAction("Action",null).show();
-                Intent lol = new Intent(getApplicationContext(),KomenActivity.class);
-                startActivity(lol);
             }
         });
         //endregion
@@ -202,11 +203,11 @@ public class halamanutama extends AppCompatActivity {
         adapter.addFragment(td);
 
         freshFragment fd = new freshFragment();
-        final ProductHelper product = new ProductHelper(getApplicationContext());
+        fd.newInstance(prodsFresh);
         adapter.addFragment(fd);
 
         //adapter.addFragment(new trendingFragment());
-        adapter.addFragment(new freshFragment());
+        //adapter.addFragment(new freshFragment());
 
         //adapter.addFragment(new CardContentFragment());
         //adapter.addFragment(new InboxFragment());
@@ -242,14 +243,14 @@ public class halamanutama extends AppCompatActivity {
         try {
             JSONObject json = new JSONObject(result);
             JSONArray json2 = json.getJSONArray("picttrend");
-            prodsTrending = new ArrayList<Product>();
+            prods = new ArrayList<Product>();
             for (int i = 0; i <json2.length(); i++) {
                 JSONObject c = json2.getJSONObject(i);
                 String name = c.getString("nama");
                 int id = c.getInt("id");
                 int harga = c.getInt("harga");
                 String deskrip = c.getString("deskripsi");
-                prodsTrending.add(new Product(name,id,harga,deskrip));
+                prods.add(new Product(name,id,harga,deskrip));
             }
             instance.setupViewPager();
         } catch (JSONException e) {

@@ -41,10 +41,22 @@ public class ProductHelper extends SQLiteOpenHelper{
             Log.d("error", e.getMessage().toString());
         }
     }
-    public void sqlInsertComment(int id, int posting, String komen) {
+    public void sqlInsertComment(int id, String posting, String komen) {
 
         //String query = "INSERT INTO `Komen`(`id`,`username_id`,`posting_id`,`text`,`upvote`) VALUES (NULL," + username + "," + posting + ",\"" + komen +"\",0);";
         String query = "INSERT INTO `Komen`(`id`,`username_id`,`posting_id`,`description`,`upvote`) VALUES (NULL,"+id+","+posting+",'"+komen+"',0);";
+        //String query = "INSERT INTO `Komen`(`id`,`username_id`,`posting_id`,`description`,`upvote`) VALUES (NULL,1,1,'lol',0);";
+        try {
+            SQLiteDatabase db = this.getWritableDatabase();
+            db.execSQL(query);
+        } catch (Exception e) {
+            Log.d("error", e.getMessage().toString());
+        }
+    }
+    public void sqlInsertCommentParam(String id,String komen) {
+
+        //String query = "INSERT INTO `Komen`(`id`,`username_id`,`posting_id`,`text`,`upvote`) VALUES (NULL," + username + "," + posting + ",\"" + komen +"\",0);";
+        String query = "INSERT INTO `Komen`(`id`,`username_id`,`posting_id`,`description`,`upvote`) VALUES (NULL,1,"+id+",'"+komen+"',0);";
         //String query = "INSERT INTO `Komen`(`id`,`username_id`,`posting_id`,`description`,`upvote`) VALUES (NULL,1,1,'lol',0);";
         try {
             SQLiteDatabase db = this.getWritableDatabase();
@@ -77,6 +89,27 @@ public class ProductHelper extends SQLiteOpenHelper{
         try {
             SQLiteDatabase db = this.getWritableDatabase();
             Cursor c = db.rawQuery("SELECT id,username_id,posting_id,description,upvote FROM `Komen`;", null);
+            c.moveToFirst();
+            do {
+                int id = c.getInt(0);
+                int username_id = c.getInt(1);
+                int posting_id = c.getInt(2);
+                String text = c.getString(3);
+                int upvote = c.getInt(4);
+                prods.add(new Comment(id,username_id,posting_id,text,upvote));
+            } while (c.moveToNext());
+            c.close();
+
+        } catch (Exception e) {
+            Log.e("error", e.getMessage().toString());
+        }
+        return prods;
+    }
+    public ArrayList<Comment> sqlSelectCommentParam(String a) {
+        ArrayList<Comment> prods = new ArrayList<>();
+        try {
+            SQLiteDatabase db = this.getWritableDatabase();
+            Cursor c = db.rawQuery("SELECT id,username_id,posting_id,description,upvote FROM `Komen` where posting_id = "+a+";", null);
             c.moveToFirst();
             do {
                 int id = c.getInt(0);
