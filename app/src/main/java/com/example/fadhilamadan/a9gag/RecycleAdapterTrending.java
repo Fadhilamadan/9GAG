@@ -17,14 +17,16 @@ import java.util.List;
 public class RecycleAdapterTrending extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     List<Product> productList;
+
     RecycleAdapterTrending (List<Product> productList) {
         this.productList = productList;
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view, parent, false);
-		RecyclerView.ViewHolder vhold = new RecyclerView.ViewHolder(v) {
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view,parent, false);
+
+        RecyclerView.ViewHolder vhold = new RecyclerView.ViewHolder(v) {
             @Override
             public String toString() {
                 return super.toString();
@@ -49,9 +51,9 @@ public class RecycleAdapterTrending extends RecyclerView.Adapter<RecyclerView.Vi
             Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
             iv.setImageBitmap(bmp);
 
-        }catch (MalformedURLException e){
+        } catch (MalformedURLException e){
             e.printStackTrace();
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

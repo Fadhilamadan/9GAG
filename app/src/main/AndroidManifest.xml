@@ -24,7 +24,9 @@
         </activity>
         <activity android:name=".halamanutama" />
         <activity android:name=".PhotoActivity" />
-        <activity android:name=".Comment_Activity"></activity>
+        <activity android:name=".Comment_Activity" />
+        <activity android:name=".ListViewActivity" />
+        <activity android:name=".KomenActivity"></activity>
     </application>
 
 </manifest>
