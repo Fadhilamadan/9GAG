@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class mainActivity extends AppCompatActivity {
-    final ProductHelper product = new ProductHelper(getApplicationContext());
+    //final ProductHelper product = new ProductHelper(getApplicationContext());
     Dialog dialog;
     //public static final int REQUEST_SELECT_CONTACT = 1;
 
@@ -48,7 +48,7 @@ public class mainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 dialog = new Dialog(mainActivity.this);
                 dialog.setContentView(R.layout.login_layout);
-                dialog.setTitle("LOGIN FORM");
+                dialog.setTitle("LO GIN FORM");
                 dialog.show();
 
                 //Button dialogButton = (Button) dialog.findViewById(R.id.btn)
