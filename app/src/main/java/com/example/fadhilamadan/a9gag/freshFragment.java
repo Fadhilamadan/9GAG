@@ -14,18 +14,17 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class freshFragment extends Fragment {
-
     public static RecyclerView rv;
-    public static RecycleAdapter adapter;
+    public static RecycleAdapterFresh adapter;
 
 
     public freshFragment() {
         // Required empty public constructor
     }
-    public static hotFragment newInstance(ArrayList<Product> prods) {
-        hotFragment cf = new hotFragment();
-        adapter = new RecycleAdapter(prods);
-        return cf;
+    public static freshFragment newInstance(ArrayList<Product> prodsFresh) {
+        freshFragment fd = new freshFragment();
+        adapter = new RecycleAdapterFresh(prodsFresh);
+        return fd;
     }
 
     @Override
