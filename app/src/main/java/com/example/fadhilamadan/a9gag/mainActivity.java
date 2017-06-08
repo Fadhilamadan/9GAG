@@ -20,6 +20,8 @@ public class mainActivity extends AppCompatActivity {
     //final ProductHelper product = new ProductHelper(getApplicationContext());
     Dialog dialog;
     ArrayList<Username> p;
+    TextView uname;
+    TextView upass;
     //public static final int REQUEST_SELECT_CONTACT = 1;
 
     public static void readDataFinish(Context context, String result) {
@@ -61,15 +63,16 @@ public class mainActivity extends AppCompatActivity {
 
                 //Button dialogButton = (Button) dialog.findViewById(R.id.btn)
                 Button dialogButton = (Button) dialog.findViewById(R.id.btnSubmit);
-                final TextView uname = (TextView)dialog.findViewById(R.id.txtUser);
-                final TextView upass = (TextView) dialog.findViewById(R.id.txtPass);
+
 
                 dialogButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        uname = (TextView)dialog.findViewById(R.id.txtUser);
+                        upass = (TextView) dialog.findViewById(R.id.txtPass);
                         for (int i =0; i< p.size(); i++) {
-                            if (uname.equals(p.get(i).getUsername().toString())){
-                                if (upass.equals(p.get(i).getPassword().toString())){
+                            if (uname.getText().toString().equals(p.get(i).getUsername().toString())){
+                                if (upass.getText().toString().equals(p.get(i).getPassword().toString())){
                                     Intent intent = new Intent(getApplicationContext(),halamanutama.class);
                                     String ambilNamaUser = uname.getText().toString();
                                     intent.putExtra("namaUser", ambilNamaUser);
@@ -80,10 +83,11 @@ public class mainActivity extends AppCompatActivity {
                                 }
                             }
                             else {
-                                Toast.makeText(mainActivity.this,"id / password salah",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(mainActivity.this,p.get(i).getUsername().toString(),Toast.LENGTH_SHORT).show();
                             }
+                            break;
                         }
-                        Toast.makeText(mainActivity.this, "hai", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(mainActivity.this, "hai", Toast.LENGTH_SHORT).show();
 
                     }
                 });
