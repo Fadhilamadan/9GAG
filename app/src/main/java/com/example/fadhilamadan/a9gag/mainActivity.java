@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class mainActivity extends AppCompatActivity {
@@ -48,8 +49,19 @@ public class mainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final ProductHelper product = new ProductHelper(getApplicationContext());
+        ProductHelper product = new ProductHelper(getApplicationContext());
         product.getWritableDatabase();
+        /*product.sqlInsertUsername("rama","rama");
+        product.sqlInsertUsername("adit","adit");*/
+
+        /*ArrayList<Username> p = product.sqlSelectUsername();
+        for (int i=0; i<p.size(); i++){
+            Log.d("produk", p.get(i).getUsername() + "," + p.get(i).getPassword());
+        }*/
+
+        /*final ProductHelper product = new ProductHelper(getApplicationContext());
+        product.getWritableDatabase();
+        p = product.sqlSelectUsername();*/
         p = product.sqlSelectUsername();
 
         ImageButton buttonLogin = (ImageButton) findViewById(R.id.btnLogin);
@@ -87,7 +99,11 @@ public class mainActivity extends AppCompatActivity {
                             }
                             break;
                         }
-                        //Toast.makeText(mainActivity.this, "hai", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(mainActivity.this,String.valueOf(p.size()), Toast.LENGTH_SHORT).show();
+                        /*Intent intent = new Intent(getApplicationContext(),halamanutama.class);
+                        String ambilNamaUser = uname.getText().toString();
+                        intent.putExtra("namaUser", ambilNamaUser);
+                        startActivity(intent);*/
 
                     }
                 });
