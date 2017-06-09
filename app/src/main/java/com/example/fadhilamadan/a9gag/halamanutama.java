@@ -72,7 +72,8 @@ public class halamanutama extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_halamanutama);
         instance = this;
-
+        Intent intent = getIntent();
+        String id = intent.getStringExtra("id");
 
         //product.sqlInsert("JAM KAKI", "JAM YANG DIPASANG DI KAKI", 350000);
         //product.sqlInsert("Jam Kaki", "Jam fashion yang dipasang di kaki", 350000);

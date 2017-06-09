@@ -34,13 +34,14 @@ public class KomenActivity extends AppCompatActivity {
         final ProductHelper product = new ProductHelper(getApplicationContext());
         product.getWritableDatabase();
         komentar = new ArrayList<String>();
+        komentar = product.sqlSelectCommentParam(a);
         Toast.makeText(getApplicationContext(),a,Toast.LENGTH_LONG).show();
-        ArrayList<Comment> p = product.sqlSelectCommentParam(a);
+        /*ArrayList<String> p = product.sqlSelectCommentParam(a);
         for (int i = 0; i < p.size(); i++) {
             //Toast.makeText(getApplicationContext(),String.valueOf(p.get(i).getUsername_id()),Toast.LENGTH_LONG).show();
             //Log.d("Comment cok", p.get(i).getId() + ", " + p.get(i).getUsername_id() + ", "+ p.get(i).getPosting_id()+"," + p.get(i).getTesting()+ ", " + p.get(i).getUpvite());
-            komentar.add(""+p.get(i).getId()+" : "+p.get(i).getTesting());
-        }
+
+        }*/
         lv = (ListView) findViewById(R.id.lstComment);
         ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_list_item_1,komentar);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, komentar);
@@ -61,13 +62,13 @@ public class KomenActivity extends AppCompatActivity {
     public void refresh(String a){
         final ProductHelper product = new ProductHelper(getApplicationContext());
         product.getWritableDatabase();
-        komentar = new ArrayList<String>();
-        ArrayList<Comment> p = product.sqlSelectCommentParam(a);
+        komentar = product.sqlSelectCommentParam(a);
+        /*ArrayList<Comment> p = product.sqlSelectCommentParam(a);
         for (int i = 0; i < p.size(); i++) {
             //Toast.makeText(getApplicationContext(),String.valueOf(p.get(i).getUsername_id()),Toast.LENGTH_LONG).show();
             //Log.d("Comment cok", p.get(i).getId() + ", " + p.get(i).getUsername_id() + ", "+ p.get(i).getPosting_id()+"," + p.get(i).getTesting()+ ", " + p.get(i).getUpvite());
             komentar.add(""+p.get(i).getId()+" : "+p.get(i).getTesting());
-        }
+        }*/
         ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_list_item_1,komentar);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, komentar);
         lv.setAdapter(arrayAdapter);

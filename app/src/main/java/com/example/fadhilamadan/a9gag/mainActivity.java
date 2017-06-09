@@ -51,8 +51,8 @@ public class mainActivity extends AppCompatActivity {
 
         ProductHelper product = new ProductHelper(getApplicationContext());
         product.getWritableDatabase();
-        /*product.sqlInsertUsername("rama","rama");
-        product.sqlInsertUsername("adit","adit");*/
+        //product.sqlInsertUsername("rama","rama");
+        //product.sqlInsertUsername("adit","adit");
 
         /*ArrayList<Username> p = product.sqlSelectUsername();
         for (int i=0; i<p.size(); i++){
@@ -87,7 +87,7 @@ public class mainActivity extends AppCompatActivity {
                                 if (upass.getText().toString().equals(p.get(i).getPassword().toString())){
                                     Intent intent = new Intent(getApplicationContext(),halamanutama.class);
                                     String ambilNamaUser = uname.getText().toString();
-                                    intent.putExtra("namaUser", ambilNamaUser);
+                                    intent.putExtra("id",""+p.get(i).getId());
                                     startActivity(intent);
                                 }
                                 else {

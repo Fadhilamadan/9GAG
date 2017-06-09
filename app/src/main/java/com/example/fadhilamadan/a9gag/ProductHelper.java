@@ -94,7 +94,25 @@ public class ProductHelper extends SQLiteOpenHelper{
         }
         return prods;
     }
-    public ArrayList<Comment> sqlSelectCommentParam(String a) {
+    public ArrayList<String> sqlSelectCommentParam(String a) {
+        ArrayList<String> prods = new ArrayList<>();
+        try {
+            SQLiteDatabase db = this.getWritableDatabase();
+            Cursor c = db.rawQuery("SELECT u.username,k.description FROM `Komen` k, `Username` u where k.posting_id = "+a+" AND u.id = k.username_id;", null);
+            c.moveToFirst();
+            do {
+                String user = c.getString(0);
+                String text = c.getString(1);
+                prods.add(""+user +" : "+text);
+            } while (c.moveToNext());
+            c.close();
+
+        } catch (Exception e) {
+            Log.e("error", e.getMessage().toString());
+        }
+        return prods;
+    }
+    /*public ArrayList<Comment> sqlSelectCommentParam(String a) {
         ArrayList<Comment> prods = new ArrayList<>();
         try {
             SQLiteDatabase db = this.getWritableDatabase();
@@ -114,7 +132,7 @@ public class ProductHelper extends SQLiteOpenHelper{
             Log.e("error", e.getMessage().toString());
         }
         return prods;
-    }
+    }*/
 
 
     @Override
