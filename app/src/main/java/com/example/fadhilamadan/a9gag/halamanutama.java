@@ -73,8 +73,7 @@ public class halamanutama extends AppCompatActivity {
         setContentView(R.layout.activity_halamanutama);
         instance = this;
 
-        //ProductHelper product = new ProductHelper(getApplicationContext());
-        //product.getWritableDatabase();
+
         //product.sqlInsert("JAM KAKI", "JAM YANG DIPASANG DI KAKI", 350000);
         //product.sqlInsert("Jam Kaki", "Jam fashion yang dipasang di kaki", 350000);
         //product.sqlInsert("Baju Kebalik", "Baju seragam yang kancingnya di punggung", 120000);
